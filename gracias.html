@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Conectando... | Tesis Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 flex items-center justify-center min-h-screen text-center p-6">
+    <div class="max-w-md bg-white p-10 rounded-3xl shadow-xl">
+        <h1 class="text-2xl font-black text-blue-900 mb-4">conectando con un asesor...</h1>
+        <div class="flex justify-center gap-2 mb-4">
+            <div class="w-3 h-3 bg-orange-500 rounded-full animate-bounce"></div>
+            <div class="w-3 h-3 bg-orange-500 rounded-full animate-bounce [animation-delay:-.3s]"></div>
+        </div>
+        <p class="text-sm text-slate-500">si no redirige automáticamente, <button id="m" class="text-blue-600 underline">haz clic aquí</button>.</p>
+    </div>
+    <script>
+        const u = new URLSearchParams(window.location.search).get('u');
+        const msg = encodeURIComponent("Hola Artesis Pro! Necesito asesoría especializada para mi proyecto académico.");
+        const link = `https://wa.me/${u}?text=${msg}`;
+        if(u) setTimeout(() => { window.location.href = link; }, 1500);
+        document.getElementById('m').onclick = () => window.location.href = link;
+    </script>
+</body>
+</html>
